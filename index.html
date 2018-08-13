@@ -1,125 +1,149 @@
-<html >
-	
-	<head>
-		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
-		
-		<title></title>
-		<style>
-			@import url('https://fonts.googleapis.com/css?family=Raleway:300|Roboto:700');
+<html>
 
-			body {
-   				background: 
-   					linear-gradient(
-				      rgba(0, 0, 0, 0.5), 
-				      rgba(0, 0, 0, 0.5)
-				    ),
-				    url("bryce.jpg") no-repeat fixed;
-				 background-size: cover;
-   			}
+<head>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <title>Shrey Samdani</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Raleway:300|Roboto:700');
+        body {
+            background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("bryce.jpg") no-repeat fixed;
+            background-size: cover;
+        }
 
-   			.navbar {
+        .animate-show-hide.ng-hide-add,
+.animate-show-hide.ng-hide-remove {
+  transition: all linear 0.3s;
+}
+.animate-show-hide.ng-hide {
+  opacity: 0;
+}
 
-   			}
+        
+        .otherPages{
+        	width: 800px;
+        	left: 50%;
+        	top: 50%;
+        	transform: translateX(-45%) translateY(-50%);
+        	position: absolute;
+        	text-align: center;	
+        	display: inline-block;
 
-   			.aboutme-container {
-   				width: 75%;
-   				display: block;
-   				top: 50%;
-   				left:50%;
-   				transform: translateX(-50%) translateY(-50%);
-   				text-align: center;
-   				color: #fff;
-    			position: relative;
+        	
+        }
 
-   			}
+        .buttonBar {
+        	float: left;
+        	height: 100%
+        	width: 10%;
+        	position: absolute;
+			bottom: 0;
+			right: 20px;
+        }
 
-   			.aboutme-name {
-   				font-family: 'Roboto', sans-serif;
-   				font-size: 48px;
-   			}
+        .buttonBar > .md-button {
+        	min-width: 1%;
+        }
 
-   			.aboutme-body {
-   				font-family: 'Raleway', sans-serif;
-   			}
-
-   			::before {
-   				content: "";
-    			display: table;
-   			}
-
-
-
-   			.button-row > .md-button:hover {
-   				background-color: white;
-   				color:black;
-   			}
-
-   			.button-row > .md-button {
-   				border: 1px solid ;
-   			}
  
 
-   			::after {
-   				content: "";
-    			display: table;
-   			}
+        .otherPages> iframe{
+        	float:left;
+        	width:90%;
+        	background-color: #fff;
+        	height: 98%;
+        	border-color: transparent;
+        	border-radius: 5px;
+        }
+        
+        .aboutme-container {
+            width: 500px;
+            display: block;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-70%);
+            text-align: center;
+            color: #fff;
+            position: absolute;
+        }
+        
+        .aboutme-name {
+            font-family: 'Roboto', sans-serif;
+            font-size: 48px;
+        }
+        
+        .aboutme-body {
+            font-family: 'Raleway', sans-serif;
+        }
+        
+        .button-row > .md-button:hover {
+            background-color: white;
+            color: black;
+            border-color: white;
+        }
+        
+        .button-row > .md-button {
+            border: 1px solid;
+        }
+
+    </style>
+</head>
+
+<body ng-app="LandingPage">
+
+    <!-- Angular Material requires Angular.js Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
+
+    <!-- Angular Material Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
+
+    <script type="text/javascript">
+        angular.module('LandingPage', ['ngMaterial']);
+    </script>
+
+    <div class="otherPages animate-show-hide" ng-init="showResume=false; showProjects=false" ng-show="showResume || showProjects">
+    		<iframe src="resume.html" ng-show="showResume"></iframe>
+    		<iframe src="projects.html" ng-show="showProjects"></iframe>
+    	<div class="buttonBar">
+    		<!-- <md-button>
+    		<i class="material-icons" style="color: #fff">email</i>
+    	</md-button>
+    	<br/>
+    	<md-button>
+    		<i class="material-icons" style="color: #fff">save</i>
+    	</md-button>
+    	<br/> -->
+    	<md-button ng-click="showResume=false; showProjects=false">
+    		<i class="material-icons" style="color: #fff">home</i>
+    	</md-button>
+    	
+    	</div>
+    </div>
 
 
-		</style>
-	</head>
+    <div class="aboutme-container animate-show-hide" ng-show="!(showResume || showProjects)">
 
-	<body ng-app="LandingPage">
+        <div class="aboutme-name">
+            SHREY SAMDANI
+        </div>
+        <br/>
+        <div class="aboutme-body">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sagittis eu dolor et tristique. Nam condimentum blandit mattis. Donec pulvinar, risus sed imperdiet tincidunt, metus velit pharetra justo, id sollicitudin ex quam id nibh. Nullam fermentum ante nec mi luctus, vitae posuere nulla venenatis. Praesent scelerisque risus feugiat tortor volutpat auctor. Ut et sem fringilla, consectetur leo sit amet, sollicitudin ligula. Proin ac nunc nibh. Pellentesque vel tortor risus. Integer lobortis sem ac erat pretium, eu porttitor velit lacinia. Cras tincidunt rutrum cursus. Aenean posuere luctus nisl, congue egestas ligula feugiat eu. Curabitur suscipit placerat nisl et vulputate.
+        </div>
+        <br/>
 
-		<!-- Angular Material requires Angular.js Libraries -->
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
+        <div class="button-row">
+            <md-button ng-click="showResume=true">Resume</md-button>
+            <md-button ng-click="showProjects=true">Personal Projects</md-button>
+            <!-- <md-button href="https://www.google.com">Contact Me</md-button> -->
 
+        </div>
 
-		  <!-- Angular Material Library -->
-		  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
+    </div>
 
- 		<script type="text/javascript">    
-		    /**
-		     * You must include the dependency on 'ngMaterial' 
-		     */
-		    angular.module('LandingPage', ['ngMaterial']);
-		  </script>
-
-
-		<div class="navbar">
-		</div>
-
-		<div class="aboutme-container">
-
-			<div class="aboutme-name">
-				SHREY SAMDANI
-			</div>
-			<br/>
-			<div class="aboutme-body">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sagittis eu dolor et tristique. Nam condimentum blandit mattis. Donec pulvinar, risus sed imperdiet tincidunt, metus velit pharetra justo, id sollicitudin ex quam id nibh. Nullam fermentum ante nec mi luctus, vitae posuere nulla venenatis. Praesent scelerisque risus feugiat tortor volutpat auctor. Ut et sem fringilla, consectetur leo sit amet, sollicitudin ligula. Proin ac nunc nibh. Pellentesque vel tortor risus. Integer lobortis sem ac erat pretium, eu porttitor velit lacinia. Cras tincidunt rutrum cursus. Aenean posuere luctus nisl, congue egestas ligula feugiat eu. Curabitur suscipit placerat nisl et vulputate.
-			</div>
-			<br/>
-
-			<div class="button-row">
-				<md-button  href="https://www.google.com">Resume</md-button>
-				<md-button href="https://www.google.com">Personal Projects</md-button>
-				<md-button href="https://www.google.com">Contact Me</md-button>
-
-			</div>
-			<div class="">
-
-			</div>
-
-		</div>
-
-
-		  
-
-
-
-	</body>
-
-
+</body>
 
 </html>
