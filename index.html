@@ -1,39 +1,60 @@
+<!DOCTYPE html>
 <html>
 
 <head>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
+
+      <!-- Angular Material requires Angular.js Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Angular Material Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
+
+    
     <title>Shrey Samdani</title>
     <style>
         @import url('https://fonts.googleapis.com/css?family=Raleway:300|Roboto:700');
-        body {
+
+        .aboutmeBG {
             background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("bryce.jpg") no-repeat fixed;
             background-size: cover;
+            min-height: 100%
         }
-
-        .animate-show-hide.ng-hide-add,
-.animate-show-hide.ng-hide-remove {
-  transition: all linear 0.3s;
-}
-.animate-show-hide.ng-hide {
-  opacity: 0;
-}
 
         
-        .otherPages{
-        	width: 800px;
-        	left: 50%;
-        	top: 50%;
-        	transform: translateX(-45%) translateY(-50%);
+        #resume{
+        	width: 100%;
+        	height: 100%;
+        	margin-bottom: -4px;
         	position: absolute;
-        	text-align: center;	
-        	display: inline-block;
 
-        	
         }
 
-        .buttonBar {
+        .resumeBG {
+        	background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("bryce2.jpg") no-repeat fixed;
+            background-size: cover;
+            min-height: 100%;
+            margin-bottom: 0;
+         
+        }
+
+        .headers {
+        	color:#fff;
+        	background-color:#282E34;
+        	text-align:center;
+        	padding:1px;
+        	font-size: 48px;
+        	font-family: 'Raleway', sans-serif;
+
+        }
+
+
+ /*       .buttonBar {
         	float: left;
         	height: 100%
         	width: 10%;
@@ -44,25 +65,15 @@
 
         .buttonBar > .md-button {
         	min-width: 1%;
-        }
+        }*/
 
- 
-
-        .otherPages> iframe{
-        	float:left;
-        	width:90%;
-        	background-color: #fff;
-        	height: 98%;
-        	border-color: transparent;
-        	border-radius: 5px;
-        }
         
         .aboutme-container {
-            width: 500px;
+        	width: 500px;
             display: block;
-            top: 50%;
+            top: 30%;
             left: 50%;
-            transform: translateX(-50%) translateY(-70%);
+            transform: translateX(-50%);
             text-align: center;
             color: #fff;
             position: absolute;
@@ -88,61 +99,65 @@
         }
 
     </style>
-</head>
 
-<body ng-app="LandingPage">
+<script type="text/javascript">
+        var app = angular.module('LandingPage', ['ngMaterial']);
+        app.controller('landingController', function($scope, $window) {
 
-    <!-- Angular Material requires Angular.js Libraries -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
+        	$scope.scrollToId = function(id) {
+				$window.scrollTo({
+				    top: document.getElementById(id).offsetTop,
+				    behavior: "smooth"
+				});
+        	}
 
-    <!-- Angular Material Library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
-
-    <script type="text/javascript">
-        angular.module('LandingPage', ['ngMaterial']);
+        })
     </script>
 
-    <div class="otherPages animate-show-hide" ng-init="showResume=false; showProjects=false" ng-show="showResume || showProjects">
-    		<iframe src="resume.html" ng-show="showResume"></iframe>
-    		<iframe src="projects.html" ng-show="showProjects"></iframe>
-    	<div class="buttonBar">
-    		<!-- <md-button>
-    		<i class="material-icons" style="color: #fff">email</i>
-    	</md-button>
-    	<br/>
-    	<md-button>
-    		<i class="material-icons" style="color: #fff">save</i>
-    	</md-button>
-    	<br/> -->
-    	<md-button ng-click="showResume=false; showProjects=false">
-    		<i class="material-icons" style="color: #fff">home</i>
-    	</md-button>
-    	
-    	</div>
-    </div>
+
+</head>
+
+<body ng-app="LandingPage" ng-controller="landingController">
 
 
-    <div class="aboutme-container animate-show-hide" ng-show="!(showResume || showProjects)">
+    
 
-        <div class="aboutme-name">
-            SHREY SAMDANI
-        </div>
-        <br/>
-        <div class="aboutme-body">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sagittis eu dolor et tristique. Nam condimentum blandit mattis. Donec pulvinar, risus sed imperdiet tincidunt, metus velit pharetra justo, id sollicitudin ex quam id nibh. Nullam fermentum ante nec mi luctus, vitae posuere nulla venenatis. Praesent scelerisque risus feugiat tortor volutpat auctor. Ut et sem fringilla, consectetur leo sit amet, sollicitudin ligula. Proin ac nunc nibh. Pellentesque vel tortor risus. Integer lobortis sem ac erat pretium, eu porttitor velit lacinia. Cras tincidunt rutrum cursus. Aenean posuere luctus nisl, congue egestas ligula feugiat eu. Curabitur suscipit placerat nisl et vulputate.
-        </div>
-        <br/>
+	<div class="aboutmeBG">
+	    <div class="aboutme-container"  ng-init="state='home'" ng-show="state == 'home'">
 
-        <div class="button-row">
-            <md-button ng-click="showResume=true">Resume</md-button>
-            <md-button ng-click="showProjects=true">Personal Projects</md-button>
-            <!-- <md-button href="https://www.google.com">Contact Me</md-button> -->
+		        <div class="aboutme-name">
+		            SHREY SAMDANI
+		        </div>
+		        <br/>
+		        <div class="aboutme-body">
+		            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sagittis eu dolor et tristique. Nam condimentum blandit mattis. Donec pulvinar, risus sed imperdiet tincidunt, metus velit pharetra justo, id sollicitudin ex quam id nibh. Nullam fermentum ante nec mi luctus, vitae posuere nulla venenatis. Praesent scelerisque risus feugiat tortor volutpat auctor. Ut et sem fringilla, consectetur leo sit amet, sollicitudin ligula. Proin ac nunc nibh. Pellentesque vel tortor risus. Integer lobortis sem ac erat pretium, eu porttitor velit lacinia. Cras tincidunt rutrum cursus. Aenean posuere luctus nisl, congue egestas ligula feugiat eu. Curabitur suscipit placerat nisl et vulputate.
+		        </div>
+		        <br/>
 
-        </div>
+		        <div class="button-row">
+		            <md-button ng-click="scrollToId('resumeTitle')">Resume</md-button>
+		            <md-button ng-click="scrollToId('personalProjects')">Personal Projects</md-button>
+		            <!-- <md-button href="https://www.google.com">Contact Me</md-button> -->
 
-    </div>
+		        </div>
+
+	    </div>
+	</div>
+
+	<div id="personalProjects" class="headers">
+
+    <p>Personal Projects</p>
+  	</div>
+	<div class="resumeBG"></div>
+
+	</div>
+	<div class="headers" id="resumeTitle">
+
+    <p>Resume</p>
+  	</div>
+    	<object id="resume" data="resume.html"></object>
+    
+
 
 </body>
 
