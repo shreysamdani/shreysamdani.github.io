@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project>
-	<name>test</name>
-	<short_description>t</short_description>
-	<description>a</description>
-	<image>c</image>
-	<link>a</link>
-</project>
+<root>
+	<project>
+		<name>Fortnite Chest Paths</name>
+		<icon>map</icon>
+		<short_description>Uses an extended version of Floyd-Warshall's algorithm to find the shortest paths between chests in Fortnite.</short_description>
+		<description>
+			
+
+		</description>
+		<image>c</image>
+		<link>a</link>
+	</project>
+	<project>
+		<name>Fortnite Chest Paths</name>
+		<icon>map</icon>
+		<short_description>Uses an Extended version of Floyd-Warshall's algorithm to find the shortest paths between chests in Fortnite.</short_description>
+		<description>a</description>
+		<image>c</image>
+		<link>a</link>
+	</project>
+</root>

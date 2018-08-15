@@ -20,7 +20,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
 
     <title>Shrey Samdani</title>
-
+    <script type="text/javascript" src="http://goessner.net/download/prj/jsonxml/xml2json.js"></script>
     <script type="text/javascript">
         var app = angular.module('LandingPage', ['ngMaterial']);
         app.controller('landingController', function($scope, $window) {
@@ -31,18 +31,24 @@
                     behavior: "smooth"
                 });
             }
+
+            var xhttp = new XMLHttpRequest();
+	    	xhttp.open("GET", "./projects.xml", false);
+	    	xhttp.send();
+	    	var json = JSON.parse(xml2json(xhttp.responseXML,""))
+	    	console.log(json)
+	    	console.log(json.root.project[0].name);
+	    	$scope.projects = json.root.project;
         });
 
-         var xhttp = new XMLHttpRequest();
-    	xhttp.open("GET", "./projects.xml", false);
-    	xhttp.send()
-    	console.log(xhttp);
+
+    	
     </script>
 
 </head>
 <!-- HOME BUTTON -->
 
-<body ng-app="LandingPage" ng-controller="landingController">
+<body ng-app="LandingPage" ng-controller="landingController" ng-cloak>
     <div class="homeIcon">
         <md-button class="md-fab md-primary" ng-click="scrollToId('home')">
             <i class="material-icons">home</i>
@@ -64,22 +70,31 @@
             <br/>
 
             <div class="button-row">
-                <md-button ng-click="scrollToId('resumeTitle')">Resume</md-button>
                 <md-button ng-click="scrollToId('personalProjects')">Personal Projects</md-button>
+                <md-button ng-click="scrollToId('resumeTitle')">Resume</md-button>
                 <md-button ng-click="scrollToId('contactMe')">Contact Me</md-button>
             </div>
 
         </div>
     </div>
     <div class="location">Bryce Canyon National Park, Utah</div>
+
     <!-- PERSONAL PROJECTS -->
 
     <div id="personalProjects" class="headers">
         <p>Personal Projects</p>
     </div>
     <div class="projBG">
+    	<div class="projectFormat" ng-repeat="project in projects">
+    	<md-button class="projectButton">
+    		<i class="material-icons" style="font-size: 100px">{{project.icon}}</i>
+    		<h1>{{project.name}}</h1>
 
+    	</md-button>
+		<div class="projectDescription">{{project.short_description}}</div>
+		</div>
     </div>
+
     <div class="location">Zion National Park, Utah</div>
 
     <!-- RESUME -->

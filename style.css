@@ -27,7 +27,7 @@
         .projBG {
             background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("photos/bryce2.jpg") no-repeat fixed;
             background-size: cover;
-            min-height: 100%;
+            min-height: 80%;
             margin-bottom: 0;
         }
         
@@ -130,3 +130,38 @@
             font-family: 'Raleway', sans-serif;
             height: 0px;
         }
+
+        .projectFormat {
+            background-color: #282E34;
+            height: 300px;
+            width: 400px;
+            margin: 30px 30px 30px 30px;
+            position: relative;
+            float: left;
+            border-radius: 10px;
+            font-family: 'Raleway', sans-serif;
+            text-align: center;
+        }
+
+        .projectButton {
+            margin-top: 20px;
+            width: 90%; 
+            background-color:rgba(47, 236, 168, 0.64); 
+            color: white; 
+            border-radius: 5px;
+        }
+
+
+        .projectFormat > .md-button:hover {
+            background-color:rgba(47, 236, 168, 0.4); 
+            color: white; 
+        }
+
+        .projectDescription {
+           /* bottom: 5px;*/
+           color: white;
+            margin: 10px 15px 15px 15px;
+            position: relative;
+        }
+
+        
