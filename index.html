@@ -3,10 +3,11 @@
 
 <head>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-      <!-- Angular Material requires Angular.js Libraries -->
+    <script src="https://cdn.ckeditor.com/4.7.1/standard/ckeditor.js"></script>
+    <!-- Angular Material requires Angular.js Libraries -->
+
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
@@ -15,61 +16,59 @@
     <!-- Angular Material Library -->
     <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
 
-    
     <title>Shrey Samdani</title>
     <style>
         @import url('https://fonts.googleapis.com/css?family=Raleway:300|Roboto:700');
-
+        .text-box {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 650;
+            background-color: #282E34;
+        }
+        
+        .text-box > .button-row {
+            text-align: center;
+        }
+        
         .aboutmeBG {
             background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("bryce.jpg") no-repeat fixed;
             background-size: cover;
             min-height: 100%
         }
-
         
-        #resume{
-        	width: 100%;
-        	height: 100%;
-        	margin-bottom: -4px;
-        	position: absolute;
-
+        #resume {
+            width: 100%;
+            height: 105%;
+            margin-bottom: -4px;
+            position: relative;
         }
-
-        .resumeBG {
-        	background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("bryce2.jpg") no-repeat fixed;
+        
+        .projBG {
+            background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("bryce2.jpg") no-repeat fixed;
             background-size: cover;
             min-height: 100%;
             margin-bottom: 0;
-         
         }
-
+        
+        .contactBG {
+            background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("bryce3.jpg") no-repeat fixed;
+            background-size: cover;
+            min-height: 20%;
+            margin-bottom: 0;
+        }
+        
         .headers {
-        	color:#fff;
-        	background-color:#282E34;
-        	text-align:center;
-        	padding:1px;
-        	font-size: 48px;
-        	font-family: 'Raleway', sans-serif;
-
+            color: #fff;
+            background-color: #282E34;
+            text-align: center;
+            padding: 1px;
+            font-size: 48px;
+            font-family: 'Raleway', sans-serif;
         }
-
-
- /*       .buttonBar {
-        	float: left;
-        	height: 100%
-        	width: 10%;
-        	position: absolute;
-			bottom: 0;
-			right: 20px;
-        }
-
-        .buttonBar > .md-button {
-        	min-width: 1%;
-        }*/
-
         
         .aboutme-container {
-        	width: 500px;
+            width: 500px;
             display: block;
             top: 30%;
             left: 50%;
@@ -96,68 +95,94 @@
         
         .button-row > .md-button {
             border: 1px solid;
+            color: #fff;
         }
-
+        
+        body {}
     </style>
 
-<script type="text/javascript">
+    <script type="text/javascript">
         var app = angular.module('LandingPage', ['ngMaterial']);
         app.controller('landingController', function($scope, $window) {
 
-        	$scope.scrollToId = function(id) {
-				$window.scrollTo({
-				    top: document.getElementById(id).offsetTop,
-				    behavior: "smooth"
-				});
-        	}
-
+            $scope.scrollToId = function(id) {
+                $window.scrollTo({
+                    top: document.getElementById(id).offsetTop,
+                    behavior: "smooth"
+                });
+            }
         })
     </script>
-
 
 </head>
 
 <body ng-app="LandingPage" ng-controller="landingController">
+    <div>
 
+    </div>
 
-    
+    <div class="aboutmeBG">
+        <div class="aboutme-container" ng-init="state='home'" ng-show="state == 'home'">
 
-	<div class="aboutmeBG">
-	    <div class="aboutme-container"  ng-init="state='home'" ng-show="state == 'home'">
+            <div class="aboutme-name">
+                SHREY SAMDANI
+            </div>
+            <br/>
+            <div class="aboutme-body">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sagittis eu dolor et tristique. Nam condimentum blandit mattis. Donec pulvinar, risus sed imperdiet tincidunt, metus velit pharetra justo, id sollicitudin ex quam id nibh. Nullam fermentum ante nec mi luctus, vitae posuere nulla venenatis. Praesent scelerisque risus feugiat tortor volutpat auctor. Ut et sem fringilla, consectetur leo sit amet, sollicitudin ligula. Proin ac nunc nibh. Pellentesque vel tortor risus. Integer lobortis sem ac erat pretium, eu porttitor velit lacinia. Cras tincidunt rutrum cursus. Aenean posuere luctus nisl, congue egestas ligula feugiat eu. Curabitur suscipit placerat nisl et vulputate.
+            </div>
+            <br/>
 
-		        <div class="aboutme-name">
-		            SHREY SAMDANI
-		        </div>
-		        <br/>
-		        <div class="aboutme-body">
-		            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sagittis eu dolor et tristique. Nam condimentum blandit mattis. Donec pulvinar, risus sed imperdiet tincidunt, metus velit pharetra justo, id sollicitudin ex quam id nibh. Nullam fermentum ante nec mi luctus, vitae posuere nulla venenatis. Praesent scelerisque risus feugiat tortor volutpat auctor. Ut et sem fringilla, consectetur leo sit amet, sollicitudin ligula. Proin ac nunc nibh. Pellentesque vel tortor risus. Integer lobortis sem ac erat pretium, eu porttitor velit lacinia. Cras tincidunt rutrum cursus. Aenean posuere luctus nisl, congue egestas ligula feugiat eu. Curabitur suscipit placerat nisl et vulputate.
-		        </div>
-		        <br/>
+            <div class="button-row">
+                <md-button ng-click="scrollToId('resumeTitle')">Resume</md-button>
+                <md-button ng-click="scrollToId('personalProjects')">Personal Projects</md-button>
+                <md-button ng-click="scrollToId('contactMe')">Contact Me</md-button>
+            </div>
 
-		        <div class="button-row">
-		            <md-button ng-click="scrollToId('resumeTitle')">Resume</md-button>
-		            <md-button ng-click="scrollToId('personalProjects')">Personal Projects</md-button>
-		            <!-- <md-button href="https://www.google.com">Contact Me</md-button> -->
+        </div>
+    </div>
 
-		        </div>
+    <div id="personalProjects" class="headers">
 
-	    </div>
-	</div>
+        <p>Personal Projects</p>
+    </div>
+    <div class="projBG"></div>
 
-	<div id="personalProjects" class="headers">
+    <div class="headers" id="resumeTitle">
+        <p>Resume</p>
+    </div>
+    <object id="resume" data="resume.html"></object>
 
-    <p>Personal Projects</p>
-  	</div>
-	<div class="resumeBG"></div>
+    <div class="contactBG"></div>
 
-	</div>
-	<div class="headers" id="resumeTitle">
+    <div class="headers" id="contactMe">
+        <p>Contact Me</p>
+    </div>
+    <div ng-if="messageSent" style="text-align: center; background-color: #282E34; color: white;">
+        Message Sent
+    </div>
+    <div style="height: 50%; background-color: #282E34">
+        <form method="post" target=test action="https://docs.google.com/forms/d/e/1FAIpQLScC-OaEIaffg8sqQ6nr8hb6XfHtBtc6TTnr9indEgjRmzAEIw/formResponse" id="contactMeForm">
 
-    <p>Resume</p>
-  	</div>
-    	<object id="resume" data="resume.html"></object>
-    
+            <div class="text-box">
+                <md-input-container>
+                    <label style="color: white">Subject</label>
+                    <input name="entry.244664271" type="text" ng-model="color" style="width:650px; color: white; border-color: white">
+                </md-input-container>
 
+                <textarea name="entry.629231885" form="contactMeForm"></textarea>
+                <script>
+                    CKEDITOR.replaceAll();
+                </script>
+                <br/>
+                <div class="button-row">
+                    <md-button type='submit' ng-click="messageSent=true">send</md-button>
+                </div>
+
+            </div>
+        </form>
+        <iframe name="test" src="" ng-show="false"></iframe>
+    </div>
 
 </body>
 
