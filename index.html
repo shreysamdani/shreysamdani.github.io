@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <script src="https://cdn.ckeditor.com/4.7.1/standard/ckeditor.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
     <!-- Angular Material requires Angular.js Libraries -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
@@ -23,7 +23,7 @@
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            width: 650;
+            width: 650px;
             background-color: #282E34;
         }
         
@@ -54,7 +54,7 @@
         .contactBG {
             background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("bryce3.jpg") no-repeat fixed;
             background-size: cover;
-            min-height: 20%;
+            min-height: 30%;
             margin-bottom: 0;
         }
         
@@ -70,7 +70,7 @@
         .aboutme-container {
             width: 500px;
             display: block;
-            top: 30%;
+            top: 20%;
             left: 50%;
             transform: translateX(-50%);
             text-align: center;
@@ -81,6 +81,7 @@
         .aboutme-name {
             font-family: 'Roboto', sans-serif;
             font-size: 48px;
+            padding-top: 30px;
         }
         
         .aboutme-body {
@@ -98,7 +99,57 @@
             color: #fff;
         }
         
-        body {}
+        .homeIcon > .md-button.md-primary.md-fab {
+            position: fixed;
+            bottom: 5px;
+            right: 5px;
+            z-index: 1000;
+            color: white;
+            background-color: transparent;
+        }
+        
+        .homeIcon > .md-button.md-fab:not([disabled]):hover {
+            color: black;
+            background-color: white;
+        }
+        
+        .sendIcon > .md-button.md-primary.md-fab {
+            position: fixed;
+            bottom: 5px;
+            right: 5px;
+            z-index: 1000;
+            color: black;
+            background-color: transparent;
+        }
+        
+        .sendIcon > .md-button.md-fab:not([disabled]):hover {
+            color: white;
+            background-color: black;
+        }
+        
+        .material-icons {
+            font-size: 30px;
+            vertical-align: middle;
+        }
+        
+        .ck {
+            height: 300px;
+        }
+        
+        .profile {
+            height: 250px;
+            width: 250px;
+            border-radius: 50%;
+        }
+        
+        .location {
+            bottom: 35px;
+            left: 25px;
+            color: white;
+            position: relative;
+            font-family: 'Raleway', sans-serif;
+            height: 0px;
+        }
     </style>
 
     <script type="text/javascript">
@@ -115,15 +166,20 @@
     </script>
 
 </head>
+<!-- HOME BUTTON -->
 
 <body ng-app="LandingPage" ng-controller="landingController">
-    <div>
-
+    <div class="homeIcon">
+        <md-button class="md-fab md-primary" ng-click="scrollToId('home')">
+            <i class="material-icons">home</i>
+        </md-button>
     </div>
 
-    <div class="aboutmeBG">
-        <div class="aboutme-container" ng-init="state='home'" ng-show="state == 'home'">
+    <!-- ABOUT ME -->
+    <div class="aboutmeBG" id="home">
 
+        <div class="aboutme-container">
+            <img src="profile.png" class="profile" style="">
             <div class="aboutme-name">
                 SHREY SAMDANI
             </div>
@@ -141,47 +197,59 @@
 
         </div>
     </div>
+    <div class="location">Bryce Canyon National Park, Utah</div>
+    <!-- PERSONAL PROJECTS -->
 
     <div id="personalProjects" class="headers">
-
         <p>Personal Projects</p>
     </div>
-    <div class="projBG"></div>
+    <div class="projBG">
 
+    </div>
+    <div class="location">Zion National Park, Utah</div>
+
+    <!-- RESUME -->
     <div class="headers" id="resumeTitle">
         <p>Resume</p>
     </div>
     <object id="resume" data="resume.html"></object>
 
-    <div class="contactBG"></div>
+    <div class="contactBG">
 
+    </div>
+    <div class="location">Horseshoe Bend, Arizona</div>
+
+    <!-- CONTACT ME -->
     <div class="headers" id="contactMe">
         <p>Contact Me</p>
     </div>
     <div ng-if="messageSent" style="text-align: center; background-color: #282E34; color: white;">
         Message Sent
     </div>
+
+    <!-- inspected google forms page to find post url and arguements -->
     <div style="height: 50%; background-color: #282E34">
         <form method="post" target=test action="https://docs.google.com/forms/d/e/1FAIpQLScC-OaEIaffg8sqQ6nr8hb6XfHtBtc6TTnr9indEgjRmzAEIw/formResponse" id="contactMeForm">
 
             <div class="text-box">
+                <div class="sendIcon">
+                    <md-button class="md-fab md-primary" type='submit' ng-click="messageSent=true">
+				    	<i class="material-icons">send</i>
+				    </md-button>
+			    </div>
                 <md-input-container>
-                    <label style="color: white">Subject</label>
-                    <input name="entry.244664271" type="text" ng-model="color" style="width:650px; color: white; border-color: white">
+                    <label style="color: white ">Email</label>
+                    <input name="entry.244664271 " type="text " ng-model="color " style="width:650px; color: white; border-color: white ">
                 </md-input-container>
 
-                <textarea name="entry.629231885" form="contactMeForm"></textarea>
+                <textarea id="editor " name="entry.629231885 " form="contactMeForm "></textarea>
                 <script>
-                    CKEDITOR.replaceAll();
+                    ClassicEditor.create(document.querySelector('#editor'));
                 </script>
-                <br/>
-                <div class="button-row">
-                    <md-button type='submit' ng-click="messageSent=true">send</md-button>
-                </div>
 
             </div>
         </form>
-        <iframe name="test" src="" ng-show="false"></iframe>
+        <iframe name="test " src=" " ng-show="false "></iframe>
     </div>
 
 </body>
