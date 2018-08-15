@@ -4,6 +4,9 @@
 <head>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <link rel="icon" href="photos/faceIcon.png">
+
 
     <script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
     <!-- Angular Material requires Angular.js Libraries -->
@@ -17,140 +20,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
 
     <title>Shrey Samdani</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css?family=Raleway:300|Roboto:700');
-        .text-box {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 650px;
-            background-color: #282E34;
-        }
-        
-        .text-box > .button-row {
-            text-align: center;
-        }
-        
-        .aboutmeBG {
-            background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("bryce.jpg") no-repeat fixed;
-            background-size: cover;
-            min-height: 100%
-        }
-        
-        #resume {
-            width: 100%;
-            height: 105%;
-            margin-bottom: -4px;
-            position: relative;
-        }
-        
-        .projBG {
-            background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("bryce2.jpg") no-repeat fixed;
-            background-size: cover;
-            min-height: 100%;
-            margin-bottom: 0;
-        }
-        
-        .contactBG {
-            background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("bryce3.jpg") no-repeat fixed;
-            background-size: cover;
-            min-height: 30%;
-            margin-bottom: 0;
-        }
-        
-        .headers {
-            color: #fff;
-            background-color: #282E34;
-            text-align: center;
-            padding: 1px;
-            font-size: 48px;
-            font-family: 'Raleway', sans-serif;
-        }
-        
-        .aboutme-container {
-            width: 500px;
-            display: block;
-            top: 20%;
-            left: 50%;
-            transform: translateX(-50%);
-            text-align: center;
-            color: #fff;
-            position: absolute;
-        }
-        
-        .aboutme-name {
-            font-family: 'Roboto', sans-serif;
-            font-size: 48px;
-            padding-top: 30px;
-        }
-        
-        .aboutme-body {
-            font-family: 'Raleway', sans-serif;
-        }
-        
-        .button-row > .md-button:hover {
-            background-color: white;
-            color: black;
-            border-color: white;
-        }
-        
-        .button-row > .md-button {
-            border: 1px solid;
-            color: #fff;
-        }
-        
-        .homeIcon > .md-button.md-primary.md-fab {
-            position: fixed;
-            bottom: 5px;
-            right: 5px;
-            z-index: 1000;
-            color: white;
-            background-color: transparent;
-        }
-        
-        .homeIcon > .md-button.md-fab:not([disabled]):hover {
-            color: black;
-            background-color: white;
-        }
-        
-        .sendIcon > .md-button.md-primary.md-fab {
-            position: fixed;
-            bottom: 5px;
-            right: 5px;
-            z-index: 1000;
-            color: black;
-            background-color: transparent;
-        }
-        
-        .sendIcon > .md-button.md-fab:not([disabled]):hover {
-            color: white;
-            background-color: black;
-        }
-        
-        .material-icons {
-            font-size: 30px;
-            vertical-align: middle;
-        }
-        
-        .ck {
-            height: 300px;
-        }
-        
-        .profile {
-            height: 250px;
-            width: 250px;
-            border-radius: 50%;
-        }
-        
-        .location {
-            bottom: 35px;
-            left: 25px;
-            color: white;
-            position: relative;
-            font-family: 'Raleway', sans-serif;
-            height: 0px;
-        }
-    </style>
 
     <script type="text/javascript">
         var app = angular.module('LandingPage', ['ngMaterial']);
@@ -162,7 +31,12 @@
                     behavior: "smooth"
                 });
             }
-        })
+        });
+
+         var xhttp = new XMLHttpRequest();
+    	xhttp.open("GET", "./projects.xml", false);
+    	xhttp.send()
+    	console.log(xhttp);
     </script>
 
 </head>
@@ -179,7 +53,7 @@
     <div class="aboutmeBG" id="home">
 
         <div class="aboutme-container">
-            <img src="profile.png" class="profile" style="">
+            <img src="photos/profile.png" class="profile" style="">
             <div class="aboutme-name">
                 SHREY SAMDANI
             </div>
@@ -249,7 +123,7 @@
 
             </div>
         </form>
-        <iframe name="test " src=" " ng-show="false "></iframe>
+        <iframe name="test" src="" ng-show="false"></iframe>
     </div>
 
 </body>
