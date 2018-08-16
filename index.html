@@ -147,7 +147,9 @@
             </md-button>
             <div class="projectDescription" ng-bind-html="project.short_description"></div>
             <div class="projectFull animate-show-hide projLink" ng-show="project.showFull" ng-attr-id="{{project.name}}">
+				
                 <ng-bind-html ng-bind-html="project.description"></ng-bind-html>
+				<img src="photos/{{project.image}}" ng-if="project.image" class="projectImage">
                 <a href="{{project.link}}" class="projLink" target="_blank">
                     <center>Github Link</center>
                 </a>

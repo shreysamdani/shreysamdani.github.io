@@ -93,6 +93,9 @@
 .projLink a:hover {
      color: #6C6C6C;
 }
+.projectImage {
+	max-width: 100%;
+}
 
 /************* RESUME CSS*******************/
  #resume {
