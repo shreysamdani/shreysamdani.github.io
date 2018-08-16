@@ -1,22 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
-	<project>
-		<name>Fortnite Chest Paths</name>
-		<icon>map</icon>
-		<short_description>Uses an extended version of Floyd-Warshall's algorithm to find the shortest paths between chests in Fortnite.</short_description>
-		<description>
-			
+  <project>
+    <name>Fortnite Chest Paths</name>
+    <icon>map</icon>
+    <short_description>Uses an extended version of Floyd-Warshall's algorithm to find the shortest paths between chests in Fortnite.</short_description>
+    <description># Fortnite Chest Paths
+Runs an extended version of Floyd-Warshall's algorithm to find the shortest path between chests in Fortnite while accessing a certain number of chests.
 
-		</description>
-		<image>c</image>
-		<link>a</link>
-	</project>
-	<project>
-		<name>Fortnite Chest Paths</name>
-		<icon>map</icon>
-		<short_description>Uses an Extended version of Floyd-Warshall's algorithm to find the shortest paths between chests in Fortnite.</short_description>
-		<description>a</description>
-		<image>c</image>
-		<link>a</link>
-	</project>
+## How it works
+ 1. The location of the chests are retrieved from link below and made into a graph
+ 2. The shortest paths from every chest to every other chest is computed using Floyd-Warshal's algorithm
+    - A modification (shown by the algorithm below) is made to the dynamic programming algorithm to keep track of the shortest path length using _n_ chests (the modification is another dimension to the DP matrix)
+    - I added a second modification to recreate the actual paths
+ 3. The resulting matrix (used for quick path reconstruction) is stored over a series of files
+ 4. When two chests are clicked on the frontend, the backend uses those two chests and the DP matrix to find the shortest path and return it to the frontend
+ 
+chest information from http://www.fortnitechests.info/  
+base algorithm from https://www.geeksforgeeks.org/shortest-path-exactly-k-edges-directed-weighted-graph/
+</description>
+    <image>fortniteChests.png</image>
+    <link>
+    	https://github.com/shreysamdani/fortniteChestPaths
+    </link>
+  </project>
+   
+  <project>
+    <name>Bit Solver</name>
+    <icon>looks_one</icon>
+    <short_description> Brute forces a solution to bit equations by finding patterns between nibble digits and single digit key values.</short_description>
+    <description> 
+# Bit Solver
+Brute forces a solution to bit equations by finding patterns between nibble digits and single digit key values.
+
+# Example
+Find all patterns between (&quot;0000&quot;, &quot;1&quot;) and (&quot;1001&quot;, &quot;1&quot;) &lt;br&gt;&lt;br&gt;
+
+Bit_Solver performs logical operations on the first nibble in the set (&quot;0000&quot;) that yield the desired output (&quot;1&quot;) and finds which of these relevant operations can correctly solve other nibble-digit pairs. &lt;br&gt;&lt;br&gt;
+
+In this case the solver finds 7104 possible ways using logical operations to use nibble digits to get the desired answer. &lt;br&gt;
+One possible solution would be `~ index 0 ^ ~ index 1 | ~ index 2 | ~ index 3`
+&lt;br&gt;
+
+# Operations
+Bit_Solver currently handles the following logical operations:
+&lt;ul&gt;
+&lt;li&gt;XOR ^
+&lt;li&gt;OR | 
+&lt;li&gt;AND &amp;
+&lt;li&gt;NOT ~
+&lt;li&gt;NOT USED
+&lt;li&gt;NO CHANGE
+&lt;/ul&gt; 
+	  </description>
+    <image></image>
+    <link>https://github.com/shreysamdani/Bit_Solver</link>
+  </project>
+  <project>
+    <name>Key Analyzer</name>
+    <icon>vpn_key</icon>
+    <short_description>
+      This tool is used to analyze trends and patterns with seed/key data in the form of an excel document.
+    </short_description>
+    <description> # Key Analyzer
+This tool is used to analyze seed/key data in the form of an excel document.&lt;/br&gt;&lt;/br&gt;
+## Features:
+Given hex seed/key pairs, this tool conducts basic analysis on the data, including&lt;/br&gt;
+&lt;ul&gt;
+&lt;li&gt;DEC BIN conversion
+&lt;li&gt;XOR, first differences, and second differences
+&lt;li&gt;Binary differences
+&lt;li&gt;Graphs and Charts
+&lt;li&gt;Binary Rotations and Shifts
+&lt;li&gt;Common Appearances
+&lt;li&gt;Seed/Key XOR
+&lt;li&gt;Mask Patterns
+&lt;/ul&gt;
+
+## Formatting:
+The input excel file should have a sheet named Seed_Keys_Samples. The first column of this sheet should be the hex seeds and the second column should be the hex keys. Row 2 of this sheet must have &apos;SEED&apos; and &apos;KEY&apos; in columns A and B respectively. The values must follow immediately after. If the file is not reading in, change the format of the cells to &apos;text&apos; rather than general.
+
+## Usage:
+Python 3.5 must be installed.</description>
+    <image></image>
+    <link>
+      https://github.com/shreysamdani/Key_Analyzer
+    </link>
+  </project>
 </root>
